@@ -1,7 +1,8 @@
 
-# CXR LLaVA
+# CXR-LLaVA Model Card
 ### Multimodal Large Language Model Fine-Tuned for Chest X-ray Images
-CXR LLaVA is an innovative open-source, multimodal large language model specifically designed for generating radiologic reports from chest X-ray images.
+
+CXR-LLaVA is an open-source, multimodal large language model specifically designed for generating radiologic reports from chest X-ray images.
 
 -   **Arxiv Preprint Paper**: Explore the detailed scientific background of CXR LLaVA on [Arxiv](https://arxiv.org/abs/2310.18341).
 -   **Demo Website**: Experience the model in action at [Radiologist App](https://radiologist.app/cxr-llava/viewer.php).
@@ -97,9 +98,52 @@ chat = [
 response = model.generate_cxr_repsonse(chat=chat,pil_image=img, temperature=0, top_p=1)
 ```
 
+## Intended Use
+### Intended Use Cases
+CXR-LLaVA is designed for generating radiologic reports from chest X-ray images and is intended for research purposes. It can assist researchers in exploring the potential of multimodal large language models in interpreting chest X-rays. The model is suitable for assistant-like chat interactions related to chest X-ray interpretation.
+
+### Out-of-Scope Use
+* Use for interpreting non-CXR images or medical imaging modalities not covered in the training data, such as photographs or other types of radiological images, which will result in meaningless outputs.
+* Clinical decision-making or direct patient care.
+
+## Training Data
+The CXR-LLaVA model was trained on multiple open CXR datasets, including BrixIA, CheXpert, MIMIC, NIH, PadChest, RSNA COVID-19 AI Detection Challenge, and VinDR datasets.
+
+Refer to our research article on [Arxiv](https://arxiv.org/abs/2310.18341) for more details.
+
+## Model Performance
+Refer to our research article on [Arxiv](https://arxiv.org/abs/2310.18341) for more details.
+
+## Model Release
+* Model (v2.0.1) Release Date: January 14, 2024.
+* Status: This is a static model trained on an offline dataset.
+
+
+## Ethical Considerations
+**Research Use Only:** The CXR-LLaVA model is intended solely for research purposes. Users must ensure ethical and responsible use within a research setting. It should not be used for clinical diagnosis or treatment without thorough validation and regulatory approval.
+
+**Informed Usage:** Users must be knowledgeable about the model's capabilities and limitations. They should interpret results within the context of their expertise and be aware of the potential implications of using the model.
+
+**Data Privacy:** When using the model with patient data, researchers must adhere to all relevant data protection and privacy regulations. Anonymization of patient data is essential to maintain confidentiality and privacy.
+
+## Limitations
+**Domain-Specific Training:** The model was trained exclusively on chest X-ray (CXR) images. Inputting non-CXR images, such as photographs or other types of medical imaging, will result in meaningless outputs.
+
+**Numerical Data Handling:** The model may struggle with accurately processing numerical data, including specific measurements or quantitative details often found in radiologic reports, such as the exact location or size of abnormalities.
+
+**Image Quality:** The model processes 512x512 resolution grayscale images. Differences in image resolution or grayscale levels from those used during training could affect the model's performance. Higher resolution images or those with more grayscale levels might provide details that the model cannot accurately interpret.
+
+**Bias and Generalizability:** The model was trained on specific datasets, which may not fully represent the diversity of clinical cases in different medical settings. This could lead to biases in the model's outputs. Users should interpret results cautiously and consider potential biases.
+
+**Unpredictable Outputs:** As with all LLMs, the CXR-LLaVA model may produce unpredictable outputs. Safety testing and tuning tailored to specific applications are necessary before deploying any applications involving this model.
+Regulatory Approval: The model has not undergone regulatory approval processes, such as FDA clearance. It must not be used for clinical decision-making or direct patient care without such approval.
+
+## Important Note
+CXR-LLaVA may generate incorrect interpretations of chest X-rays, omit crucial information, or provide inaccurate responses during interactions. Therefore, it should never be used for patient treatment. The model is intended solely for research purposes and should not be relied upon for clinical decision-making or direct patient care.
+
+
 
 ## License Information
-
 CXR LLaVA is available under a Creative Commons NonCommercial License. 
 
 Users must obtain the LLAMA-2 license prior to use. More details can be found [here](https://ai.meta.com/resources/models-and-libraries/llama-downloads/).
